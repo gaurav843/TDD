@@ -19,7 +19,7 @@ public class StringCalculator {
 		if (numbers.length() <= 0) {
 			return 0;
 		}
-		String[] numbersArray = numbers.split(",");
+		String[] numbersArray = numbers.replaceAll(",","\n").split("\n");
 		int total = 0;
 		for (int i = 0; i < numbersArray.length; i++) {
 			int num = Integer.parseInt(numbersArray[i]);
