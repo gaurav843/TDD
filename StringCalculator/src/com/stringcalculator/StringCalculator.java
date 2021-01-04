@@ -19,11 +19,36 @@ public class StringCalculator {
 		if (numbers.length() <= 0) {
 			return 0;
 		}
-		String[] numbersArray = numbers.replaceAll("[()?:!.,;{}]+","\n").split("\n");
+		String str2 = numbers.replaceAll("[()?:!.,;{}]+","\n");
+		String[] numbersStringArray = str2.replaceAll("( )+","/n").split("\n");
+		int[] numberArray = new int[numbersStringArray.length];
+	
+		
+		for (int i = 0 ; i< numbersStringArray.length;i++) {
+			int num = Integer.parseInt(numbersStringArray[i]);
+			numberArray[i] = num;		
+		}
+		int[] negatives  = new int[numberArray.length];
+		for (int k = 0 ;k<numberArray.length;k++) {
+			if(numberArray[k]<0) {
+				
+				negatives[k] = numberArray[k];
+					}
+		}
+		
+		if (negatives.length>0) {
+			throw new ArithmeticException("negative not allowed");  
+		}
+		
 		int total = 0;
-		for (int i = 0; i < numbersArray.length; i++) {
-			int num = Integer.parseInt(numbersArray[i]);
+		for (int j = 0; j < numberArray.length; j++) {
+			int num = numberArray[j];
+			if (num>1000) {
+				total = total + 0;
+			}
+			else{
 			total = total + num;
+			}
 		}
 		return total;
 	}
