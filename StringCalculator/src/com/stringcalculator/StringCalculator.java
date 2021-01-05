@@ -29,6 +29,7 @@ public class StringCalculator {
 			numberArray[i] = num;		
 		}
 		int[] negatives  = new int[numberArray.length];
+		
 		for (int k = 0 ;k<numberArray.length;k++) {
 			if(numberArray[k]<0) {
 				
@@ -37,7 +38,15 @@ public class StringCalculator {
 		}
 		
 		if (negatives.length>0) {
-			throw new ArithmeticException("negative not allowed");  
+			
+			
+			for(int n = 0;n>negatives.length;n++) {
+				if(negatives[n]<0) {
+					throw new ArithmeticException("negative not allowed" + negatives );
+					
+				}
+			}
+			  
 		}
 		
 		int total = 0;
