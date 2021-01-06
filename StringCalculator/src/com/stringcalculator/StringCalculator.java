@@ -25,29 +25,22 @@ public class StringCalculator {
 	
 		
 		for (int i = 0 ; i< numbersStringArray.length;i++) {
+			
 			int num = Integer.parseInt(numbersStringArray[i]);
-			numberArray[i] = num;		
-		}
-		int[] negatives  = new int[numberArray.length];
-		
-		for (int k = 0 ;k<numberArray.length;k++) {
-			if(numberArray[k]<0) {
-				
-				negatives[k] = numberArray[k];
-					}
-		}
-		
-		if (negatives.length>0) {
+			numberArray[i] = num;	
 			
-			
-			for(int n = 0;n>negatives.length;n++) {
-				if(negatives[n]<0) {
-					throw new ArithmeticException("negative not allowed" + negatives );
-					
+			if(num<0) {
+				for(int n=0;n<numbersStringArray.length;n++) {
+					System.out.print(numbersStringArray[n]);
 				}
+				throw new Error("Negative not allowed");
 			}
-			  
 		}
+		
+
+
+			  
+		
 		
 		int total = 0;
 		for (int j = 0; j < numberArray.length; j++) {
